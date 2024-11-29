@@ -164,7 +164,9 @@ public class Utils {
             }
         }
         if (entity.isEyeInFluid(FluidTags.WATER)) {
-            f *= (float) entity.getAttribute(Attributes.SUBMERGED_MINING_SPEED).getValue();
+            if(entity.getAttribute(Attributes.SUBMERGED_MINING_SPEED) != null){
+                f *= (float) entity.getAttribute(Attributes.SUBMERGED_MINING_SPEED).getValue();
+            }
         }
         if (!entity.onGround())
             f /= 5.0F;
