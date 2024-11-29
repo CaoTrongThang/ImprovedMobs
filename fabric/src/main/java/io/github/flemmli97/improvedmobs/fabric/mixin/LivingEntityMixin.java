@@ -1,7 +1,6 @@
 package io.github.flemmli97.improvedmobs.fabric.mixin;
 
 import io.github.flemmli97.improvedmobs.events.EventCalls;
-import io.github.flemmli97.improvedmobs.utils.EntityFlags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,6 +8,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import static io.github.flemmli97.improvedmobs.utils.EntityFlags.projMult;
+import static io.github.flemmli97.improvedmobs.utils.EntityFlags.explosionMult;
 
 @Mixin({LivingEntity.class})
 public abstract class LivingEntityMixin {
@@ -33,12 +35,12 @@ public abstract class LivingEntityMixin {
 
         if (source.getSource() instanceof ArrowEntity) {
             //Increase damage dealt by Arrows
-            entity.damage(entity.getWorld().getDamageSources().generic(), damageAmount * EntityFlags.projMult);
+            entity.damage(entity.getWorld().getDamageSources().generic(), damageAmount * projMult);
         }
 
         if ("explosion.player".equals(source.getName())) {
             //Increase damage dealt by Explosions
-            entity.damage(entity.getWorld().getDamageSources().generic(), damageAmount * EntityFlags.explosionMult);
+            entity.damage(entity.getWorld().getDamageSources().generic(), damageAmount * explosionMult);
         }
     }
 }

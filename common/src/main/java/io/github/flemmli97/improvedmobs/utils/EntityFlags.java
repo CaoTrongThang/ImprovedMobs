@@ -27,7 +27,7 @@ public class EntityFlags {
 
     private int shieldCooldown;
 
-    public float magicRes, projMult = 1, explosionMult = 1;
+    public static float magicRes, projMult = 1, explosionMult = 1;
 
     public ResourceLocation serverSideEntityID;
 
