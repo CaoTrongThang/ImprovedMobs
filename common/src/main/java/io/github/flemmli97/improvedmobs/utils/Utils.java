@@ -177,7 +177,7 @@ public class Utils {
             }
         }
         if (entity.isEyeInFluid(FluidTags.WATER) && !EnchantmentHelper.hasAquaAffinity(entity))
-            //Check null #286 issue
+            //Check null #287 issue
             if(entity.getAttribute(Attributes.SUBMERGED_MINING_SPEED) != null){
                 f *= (float) entity.getAttribute(Attributes.SUBMERGED_MINING_SPEED).getValue();
             }
