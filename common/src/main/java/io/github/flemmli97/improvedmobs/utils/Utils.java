@@ -164,6 +164,7 @@ public class Utils {
             }
         }
         if (entity.isEyeInFluid(FluidTags.WATER)) {
+            //Check null for #287
             if(entity.getAttribute(Attributes.SUBMERGED_MINING_SPEED) != null){
                 f *= (float) entity.getAttribute(Attributes.SUBMERGED_MINING_SPEED).getValue();
             }
