@@ -177,7 +177,10 @@ public class Utils {
             }
         }
         if (entity.isEyeInFluid(FluidTags.WATER) && !EnchantmentHelper.hasAquaAffinity(entity))
-            f /= 5.0F;
+            //Check null #286 issue
+            if(entity.getAttribute(Attributes.SUBMERGED_MINING_SPEED) != null){
+                f *= (float) entity.getAttribute(Attributes.SUBMERGED_MINING_SPEED).getValue();
+            }
         if (!entity.onGround())
             f /= 5.0F;
         return f;
